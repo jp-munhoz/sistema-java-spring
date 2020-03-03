@@ -45,6 +45,7 @@ public class Funcionario {
     private String termino_prorrogacao;
     private String exame_data;
     private String exame_validade;
+    private String Sexo;
 
     public Funcionario(){}
 
