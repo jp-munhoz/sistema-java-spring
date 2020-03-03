@@ -41,8 +41,8 @@ public class ConstrumouraApplication {
         mailSender.setPort(25);
 
 
-        mailSender.setUsername("pedro.munhoz98@gmail.com");
-        mailSender.setPassword("jp140398jk");
+        mailSender.setUsername("");
+        mailSender.setPassword("");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
