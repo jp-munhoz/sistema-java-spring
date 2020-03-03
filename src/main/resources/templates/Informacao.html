@@ -1,0 +1,257 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <link href="css/cadastro.css" th:href="@{/css/cadastro.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"/>
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<div class="vertical-nav bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-4 ml-3">
+        <div class="media d-flex align-items-center"><a href="index.html"><img src="imagens/construmoura.png" alt="..." width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <div class="media-body">
+            </div>
+        </a></div>
+    </div>
+
+    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0 text-center">Menu</p>
+
+    <ul class="nav flex-column bg-white mb-0">
+        <li class="nav-item dropdown dropright">
+            <a class="nav-link dropdown" data-toggle="dropdown" role="button">
+                <i class="fas fa-file-invoice-dollar mr-3 text-primary fa-fw"></i>
+                Folha de Pagamento</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item text-dark " th:href="@{/Cadastro}">
+                    <i class="fas fa-users mr-3 text-primary fa-fw"></i>
+                    Cadastrar Funcionario</a>
+                <a class="dropdown-item text-dark " th:href="@{/ListagemADM}">
+                    <i class="fas fa-users mr-3 text-primary fa-fw"></i>
+                    Listagem</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/Suporte}" class="nav-link text-dark ">
+                <i class="fas fa-user-md mr-3 text-primary fa-fw"></i>
+                Suporte
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="page-content p-5" id="content" >
+     <h2 class="display-4 text-dark text-center">Folha de Pagamento</h2>
+        <h3 class="text-dark text-center mt-5">Informações do Funcionário</h3>
+        <div class="separator"></div>
+    <div class="form-row">
+        <h3 class="col-md-12 mb-5">Dados Contratuais</h3>
+        <div class="col-md-3 mb-4">
+            <label>Nome</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.nome}"></span>
+        </div>
+        <div class="col-md-3">
+            <label>Matrícula</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.matricula}" id="matricula"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Data de Nascimento</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.data_nascimento}" id="data_nascimento"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>RG</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.rg}" id="rg"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Data de Emissão</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.data_emissao}" id="data_emissao"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Orgao Expeditor</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.orgao_expeditor}" id="orgao_expeditor"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>CPF</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.cpf}" id="cpf"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Titulo de Eleitor</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.titulo_eleitor}" id="titulo_eleitor"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>PIS</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.pis}" id="pis"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Endereço</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.endereco_funcionario}" id="endereco_funcionario"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>País</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.pais}" id="pais"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label></label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.nacionalidade}" id="nacionalidade"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Estado Civil</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.estado_civil}" id="estado_civil"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Dependente</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.dependente}" id="dependente"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Nome Dependente</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.nome_dependente}" id="nome_dependente"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>CPF Dependente</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.cpf_dependente}" id="cpf_dependente"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Grau de Parentesco</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.parentesco}" id="parentesco"></span>
+        </div>
+    </div>
+    <div class="separator bg-dark"></div>
+    <div class="form-row">
+        <h3 class="col-md-12 text-dark mb-4"></h3>
+        <div class="col-md-3 mb-4">
+            <label>Função</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.funcao_funcionario}" id="funcao_funcionario"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>CBO</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.cbo}" id="cbo"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Hora Semanal</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.hora_semanal}" id="hora_semanal"></span>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <label>Hora Mensal</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.hora_mensal}" id="hora_mensal"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Contrato</label>
+            </br>
+            <span  th:each="funcionario : ${funcionarios}" th:text="${funcionario.contrato}" id="contrato"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label>Salario</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.salario}" id="salario"></span>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <div class="form-row">
+        <h3 class="col-md-12 text-dark mb-4">Dados Bancarios</h3>
+        <div class="col-md-3">
+            <label>Banco</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.banco}" id="banco"></span>
+        </div>
+
+        <div class="col-md-3 ">
+            <label>Agencia</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.agencia}" id="agencia"></span>
+        </div>
+
+        <div class="col-md-3 ">
+            <label>Conta</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.conta}" id="conta"></span>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="form-row">
+        <h3 class="col-md-12 text-dark mb-4">Experiencia</h3>
+        <div class="col-md-3 mb-4">
+            <label>Dias Trabalhados</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.dias_trabalhador}" id="dias_trabalhados"></span>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label>Término da Experiência</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.dias_termino}" id="dias_termino"></span>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label>Dias Prorrogados</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.dias_prorrogados}" id="dias_prorrogados"></span>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label>Término da Prorrogação</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.termino_prorrogacao}" id="termino_prorrogacao"></span>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label>Data Exâme Médico</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.exame_data}" id="data_exame"></span>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label>Validade do Exame</label>
+            </br>
+            <span th:each="funcionario : ${funcionarios}" th:text="${funcionario.exame_validade}" id="exame_validade"></span>
+        </div>
+    </div>
+</div>
+<script src="javascript.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

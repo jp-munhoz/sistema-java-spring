@@ -1,0 +1,110 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    z-index: 999;
+    background-color: #ff3f41;
+}
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+    #content.active {
+        margin-left: 17rem;
+        width: calc(100% - 17rem);
+    }
+}
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+
+body {
+    background: #f4fff0;
+    background: -webkit-linear-gradient(to right, #f1f3f4, #f1f3f4);
+    background: linear-gradient(to right, #f1f3f4, #f1f3f4);
+    min-height: 100vh;
+}
+
+.separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+    background-color: black;
+}
+
+.text-uppercase {
+    letter-spacing: 0.1em;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+.icones{
+    font-size: 20px;
+}
+
+label{
+    font-weight: bold;
+}
+
+.nav-item:hover{
+    background-color: powderblue;
+    border-radius: 10px;
+}
+
+
+.dropdown-menu{
+    border-radius: 10px;
+    position:relative;
+    z-index:99;
+
+}
+
+.dropdown-item:hover{
+    background-color: powderblue;
+    border-radius: 10px;
+}
+

@@ -1,0 +1,214 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="vertical-nav bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-4 ml-3">
+        <div class="media d-flex align-items-center"><a href="index.html"><img src="imagens/construmoura.png"  alt="..." width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <div class="media-body">
+            </div>
+        </a></div>
+    </div>
+    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0 text-center">Menu</p>
+    <ul class="nav flex-column bg-white mb-0">
+        <li class="nav-item dropdown dropright">
+            <a class="nav-link dropdown" data-toggle="dropdown" role="button">
+                <i class="fas fa-file-invoice-dollar mr-3 text-primary fa-fw"></i>
+                Folha de Pagamento</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item text-dark " th:href="@{/Cadastro}">
+                    <i class="fas fa-users mr-3 text-primary fa-fw"></i>
+                    Cadastrar Funcionario</a>
+                <a class="dropdown-item text-dark " th:href="@{/ListagemADM}">
+                    <i class="fas fa-users mr-3 text-primary fa-fw"></i>
+                    Listagem</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/Suporte}" class="nav-link text-dark ">
+                <i class="fas fa-user-md mr-3 text-primary fa-fw"></i>
+                Suporte
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="page-content p-5" id="content">
+    <h2 class="display-4 text-dark text-center">Folha de Pagamento</h2>
+    <h2 class="text-center text-dark mt-4">Cadastro</h2>
+    <div class="separator"></div>
+        <div class="d-flex justify-content-center">
+            <form action="/cadastrar" method="post">
+                <div class="form-row">
+                    <h3 class="col-md-12 text-dark mb-4">Dados Contratuais</h3>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" class="form-control" id="matricula" name="matricula">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="data_nascimento">Data de Nascimento</label>
+                        <input type="text" class="form-control" id="data_nascimento" name="data_nascimento">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="rg">RG</label>
+                        <input type="text" class="form-control" id="rg" name="rg">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="data_emissao">Data de Emissão</label>
+                        <input type="text" class="form-control" id="data_emissao" name="data_emissao">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="orgao_expeditor">Orgão Expeditor</label>
+                        <input type="text" class="form-control" id="orgao_expeditor" name="orgao_expeditor">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="titulo_eleitor">Título de Eleitor</label>
+                        <input type="text" class="form-control" id="titulo_eleitor" name="titulo_eleitor">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="pis">PIS</label>
+                        <input type="text" class="form-control" id="pis" name="pis">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="endereco_funcionario">Endereço</label>
+                        <input type="text" class="form-control" id="endereco_funcionario" name="endereco_funcionario">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="pais">País</label>
+                        <input type="text" class="form-control" id="pais" name="pais">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nacionalidade">Nacionalidade</label>
+                        <input type="text" class="form-control" id="nacionalidade" name="nacionalidade">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="estado_civil">Estado civil</label>
+                        <input type="text" class="form-control" id="estado_civil" name="estado_civil">
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label class="" for="dependente">Dependente</label>
+                    <select class="custom-select my-1 mr-sm-2" id="dependente" name="dependente" onchange="verificaOpcao(this.value)">
+                        <option value="Não" selected>Selecione</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Nao</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nome_dependente">Nome do Dependente</label>
+                        <input type="text" class="form-control" id="nome_dependente" name="nome_dependente" >
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cpf_dependente">CPF</label>
+                        <input type="text" class="form-control" id="cpf_dependente" name="cpf_dependente" >
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="" for="parentesco">Dependente</label>
+                        <select class="custom-select my-1 mr-sm-2" id="parentesco" name="parentesco">
+                            <option value="Não" selected>Selecione</option>
+                            <option  value="Filho(a)">Filho(a)</option>
+                            <option  value="Mãe">Mãe</option>
+                            <option  value="Pai">Pai</option>
+                            <option  value="Avó">Avó</option>
+                            <option  value="Avô">Avô</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="separator"></div>
+                    <div class="form-row">
+                        <h3 class="col-md-12 text-dark mb-4">Dados Contábeis</h3>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="funcao_funcionario">Função</label>
+                            <input type="text" class="form-control" id="funcao_funcionario" name="funcao_funcionario">
+                        </div>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="cbo">CBO</label>
+                            <input type="text" class="form-control" id="cbo" name="cbo">
+                        </div>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="hora_semanal">Hora Semanal</label>
+                            <input type="text" class="form-control" id="hora_semanal" name="hora_semanal">
+                        </div>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="hora_mensal">Hora Mensal</label>
+                            <input type="text" class="form-control" id="hora_mensal" name="hora_mensal">
+                        </div>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="contrato">Contrato</label>
+                            <input type="text" class="form-control" id="contrato" name="contrato">
+                        </div>
+                        <div class="form-group col-md-3 mb-4">
+                            <label for="salario">Salário</label>
+                            <input type="text" class="form-control" id="salario" name="salario">
+                        </div>
+                    </div>
+                <div class="separator"></div>
+                <div class="form-row">
+                    <h3 class="col-md-12 text-dark mb-4">Dados Bancários</h3>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="banco">Banco</label>
+                        <input type="text" class="form-control" id="banco" name="banco">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="agencia">Agência</label>
+                        <input type="text" class="form-control" id="agencia" name="agencia">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="conta">Conta</label>
+                        <input type="text" class="form-control" id="conta" name="conta">
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <div class="form-row">
+                    <h3 class="col-md-12 text-dark mb-4">Experiência</h3>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="dias_trabalhador">Dias Trabalhados</label>
+                        <input type="text" class="form-control" id="dias_trabalhador" name="dias_trabalhador">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="dias_termino">Término da Experiência</label>
+                        <input type="text" class="form-control" id="dias_termino" name="dias_termino">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="dias_prorrogados">Dias Prorrogados</label>
+                        <input type="text" class="form-control" id="dias_prorrogados" name="dias_prorrogados">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="termino_prorrogacao">Término da Prorrogacao</label>
+                        <input type="text" class="form-control" id="termino_prorrogacao" name="termino_prorrogacao">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="exame_data">Data Exâme Médico</label>
+                        <input type="text" class="form-control" id="exame_data" name="exame_data">
+                    </div>
+                    <div class="form-group col-md-3 mb-4">
+                        <label for="exame_validade">Validade</label>
+                        <input type="text" class="form-control" id="exame_validade" name="exame_validade">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mt-4">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+<script src="javascript.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

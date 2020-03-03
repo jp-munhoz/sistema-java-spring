@@ -1,0 +1,22 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+.login,
+.image {
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('predio.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.btn{
+    color: white;
+    background-color: darkred;
+}
