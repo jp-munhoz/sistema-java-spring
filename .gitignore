@@ -33,8 +33,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-.css
-.js
-.html
-.png
